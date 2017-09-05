@@ -3,10 +3,27 @@
 <%= @school.link %>
 <%= @school.fee_structure %>
 
+<% if @school.students.any? %>
+<h4>Students in this school:</h4>
 
-<p><%= link_to "Edit", edit_school_path(@school) %></p>
-<p><%= link_to "Delete", school_path(@school),
-                          :data => {:confirm => "You sure?",
+<ol>
+  <% @school.students.each do |student|%>
+  <li>
+    <%= student.picture%>
+    <%= student.name%>|
+    <%= link_to "Edit", edit_school_student_path(@school, student) %>|
+    <%= link_to "Delete", school_student_path(@school, student),
+                                   :data => {:confirm => "Msee uko sure?",
+                                                  :method => "delete"} %>
+  </li>
+  <%end%>
+</ol>
+<%else%>
+<p>Aki there are no students in this school yet!</p>
+ <p><%= link_to "Add a student", new_school_student_path(@school) %></p>
+
+<p><%= link_to "Delete School", school_path(@school),
+                          :data => {:confirm => "Uko sure msee?",
                                     :method => "delete"} %></p>
 
 
