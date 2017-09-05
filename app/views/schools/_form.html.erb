@@ -1,0 +1,11 @@
+<%= render "layouts/errors", :object => @school %>
+
+<%= form_for @school do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  logo: <%= f.file_field :logo %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  fee_structure:<%= f.file_field :fee_structure %>
+  <%= f.submit  %>
+<% end %>
