@@ -3,4 +3,11 @@
 <%= @school.link %>
 <%= @school.fee_structure %>
 
-  <p><%= link_to "Return to schools", schools_path %></p>
+
+<p><%= link_to "Edit", edit_school_path(@school) %></p>
+<p><%= link_to "Delete", school_path(@school),
+                          :data => {:confirm => "You sure?",
+                                    :method => "delete"} %></p>
+
+
+<p><%= link_to "Return to schools", schools_path %></p>
