@@ -1,0 +1,18 @@
+<%= render('layouts/errors', :object => @student) %>
+
+  <%= form_for [@school, @student] do |f| %>
+    logo: <%= f.file_field :picture %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :level %>
+    <%= f.text_field :level %>
+    <%= f.label :stream %>
+    <%= f.text_field :stream %>
+    <%= f.label :fee %>
+    <%= f.text_field :fee %>
+    <%= f.label :dormitory %>
+    <%= f.text_field :dormitory %>
+    <%= f.label :clubs %>
+    <%= f.text_field :clubs %>
+    <p><%= f.submit %></p>
+  <% end %>
